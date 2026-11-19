@@ -1,0 +1,13 @@
+.DS_Store
+node_modules/
+.env
+.env.*
+
+# Client work and local credentials must remain private by default.
+projects/
+.mcp.json
+*.pem
+*.key
+
+# Local source copies are for private research, not repository distribution.
+references/online/

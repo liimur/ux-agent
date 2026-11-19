@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Доска задач</title>
+<style>body{font:16px system-ui;margin:2rem;color:#172033}button{background:#172033;color:white;border:0;padding:.7rem 1rem}.error{color:#b00020}</style></head>
+<body>
+<h1>Доска задач</h1>
+<form id="task-form" novalidate>
+  <h2>Новая задача</h2>
+  <input id="title" placeholder="Название задачи">
+  <button type="submit">Добавить</button>
+  <p id="error" class="error" hidden>Введите название задачи</p>
+</form>
+<ul id="tasks"></ul>
+<script>
+const form = document.querySelector('#task-form');
+form.addEventListener('submit', event => {
+  event.preventDefault();
+  const title = document.querySelector('#title');
+  const error = document.querySelector('#error');
+  if (!title.value.trim()) { error.hidden = false; return; }
+  error.hidden = true;
+  const item = document.createElement('li');
+  item.textContent = title.value;
+  document.querySelector('#tasks').append(item);
+  title.value = '';
+});
+</script>
+</body></html>
