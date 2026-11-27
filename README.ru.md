@@ -6,7 +6,7 @@ UX Agent помогает выполнять UX/UI-задачи в Codex или 
 
 ## Запуск
 
-Открой репозиторий в Codex или Claude Code. Попроси агента прочитать [AGENTS.md](AGENTS.md) и [руководство по запуску](docs/host-agent.md), затем дай ему конкретную UX-задачу. Модель и инструменты предоставляет среда запуска, поэтому доступные возможности зависят от её настроек. Для пробного запуска есть [вымышленный проект](examples/task-board/PROJECT.md). Проверочные сценарии запускаются вручную.
+Открой репозиторий в Codex или Claude Code. Попроси агента прочитать [AGENTS.md](AGENTS.md) и [руководство по запуску](docs/host-agent.md), затем дай ему конкретную UX-задачу. Модель и инструменты предоставляет среда запуска, поэтому доступные возможности зависят от её настроек. Для пробного запуска есть [вымышленный проект](examples/task-board/PROJECT.md), а в [примерах результатов](examples/task-board/output/README.md) видно, что выдают команды.
 
 Агент по умолчанию общается и готовит материалы для пользователя на русском. В запросе или брифе можно указать другой язык. Общие инструкции и свод правил проекта ведутся на английском.
 
@@ -20,8 +20,10 @@ UX Agent помогает выполнять UX/UI-задачи в Codex или 
 | Создать или обновить дизайн-систему по исходным материалам | `/ux-design-system` | `$ux-design-system` |
 | Создать сценарий, вайрфрейм, макет или прототип | `/ux-design` | `$ux-design` |
 | Провести ревью и описать находки, доказательства и ограничения | `/ux-review` | `$ux-review` |
+| Спланировать исследование, составить гайд или синтезировать данные | `/ux-research` | `$ux-research` |
+| Превратить заметки или транскрипт интервью с дизайнером в правила проекта | `/ux-interview` | `$ux-interview` |
 
-В Codex навык также можно выбрать в интерфейсе. Если после добавления команды она не появилась, начни новую сессию. Команды можно запускать по отдельности. Для всех четырёх есть [проверочные задания и критерии оценки](evals/README.md) на примере доски задач.
+В Codex навык также можно выбрать в интерфейсе. Если после добавления команды она не появилась, начни новую сессию. Команды можно запускать по отдельности. Для команд есть [проверочные задания и критерии оценки](evals/README.md) на примере доски задач, а результаты прогонов записываются в [журнал](evals/results/README.md).
 
 ## Как начать проект
 
@@ -67,36 +69,14 @@ flowchart TD
 - [Дизайн-системы](docs/design-systems.md) — сопоставление источников, DESIGN.md и Figma.
 - [Подготовка справочников](docs/host-agent.md#prepare-references) — как подобрать официальные рекомендации под задачу и сохранить рабочие копии вне репозитория.
 - [Свод правил](canon/README.md) и [разбор конфликтов](canon/rule-conflicts.md) — принципы, происхождение и выбор применимых рекомендаций.
-- [Шаблон проекта](templates/PROJECT.md) и [шаблон ревью](templates/REVIEW.md).
+- [Шаблоны](templates/) — бриф, ревью, сценарий и вайрфреймы, спецификация прототипа, сопоставление источников и правила дизайнера.
+- [Источники методологии](docs/sources.md) и [правила участия](CONTRIBUTING.md).
 
 В каноне собраны [практические проверки для дизайна и ревью](canon/README.md#practical-checks). [Гайд Элвина Рахманкулова по интервью с дизайнером](docs/designer-interview-guide.md) помогает сформулировать правила проекта по итогам разговора.
 
 ## Источники методологии
 
-В проект включены самостоятельно сформулированные рекомендации со ссылками на источники. Полный контекст и точные формулировки стандартов смотри в оригиналах.
-
-- Jakob Nielsen, [10 Usability Heuristics for User Interface Design](https://www.nngroup.com/articles/ten-usability-heuristics/).
-- W3C, [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/).
-- Brad Frost, [*Atomic Design*](https://atomicdesign.bradfrost.com/), 2016.
-- Louis Rosenfeld, Peter Morville и Jorge Arango, *Information Architecture: For the Web and Beyond*, 4-е изд., 2015.
-- Adam Wathan и Steve Schoger, *Refactoring UI*, 2018.
-- Luke Wroblewski, *Web Form Design: Filling in the Blanks*, 2008.
-- ISO, [ISO 9241-210: Human-centred design for interactive systems](https://www.iso.org/standard/77520.html).
-- Google Labs, [спецификация формата DESIGN.md](https://github.com/google-labs-code/design.md/blob/main/docs/spec.md).
-
-### Дополнительные книги
-
-Ссылки на главы, страницы и ограничения каждой рекомендации приведены в соответствующем разделе.
-
-- [Прототипирование](canon/prototyping.md) — Bill Buxton, *Sketching User Experiences* (2007), и Carolyn Snyder, *Paper Prototyping* (2003). У Snyder изучен один раздел из экземпляра, который может быть неполным.
-- [Исследования](canon/research.md) — Erika Hall, *Just Enough Research* (изд. 2024 г.), Steve Portigal, *Interviewing Users* (2-е изд., 2023), Indi Young, *Mental Models* (2008), Caroline Jarrett, *Surveys That Work* (2021), Tom Tullis и Bill Albert, *Measuring the User Experience* (2-е изд., 2013), Jeff Sauro и James R. Lewis, *Quantifying the User Experience* (2-е изд., 2016).
-- [Взаимодействие и контент](canon/interaction-content.md) — Don Norman, *The Design of Everyday Things* (переработанное изд., 2013), Jenifer Tidwell, *Designing Interfaces* (2-е изд., 2011), Steve Krug, *Don't Make Me Think, Revisited* (3-е изд., 2014) и *Rocket Surgery Made Easy* (2010), Sarah Richards, *Content Design* (2017), Susan Weinschenk, *100 Things Every Designer Needs to Know About People* (2-е изд., 2020).
-- [Визуальный дизайн и дизайн-системы](canon/visual-systems.md) — Ellen Lupton, *Thinking with Type* (3-е изд., 2024), Josef Müller-Brockmann, *Grid Systems in Graphic Design* (издательство Niggli, год не подтверждён), Josef Albers, *Interaction of Color* (4-е изд., 2013), Alla Kholmatova, *Design Systems* (2017), Dan Mall, *Design That Scales* (2023), Kat Holmes, *Mismatch* (2018).
-- [Информационная архитектура](canon/information-architecture.md) — Abby Covert, *How to Make Sense of Any Mess* (2014).
-- [Проектирование от целей пользователя](canon/interaction-content.md#goal-directed-interaction-design) — Alan Cooper, Robert Reimann, David Cronin и Christopher Noessel, *About Face: The Essentials of Interaction Design* (4-е изд., 2014).
-- [Типографика](canon/visual-systems.md#typography) — Robert Bringhurst, *The Elements of Typographic Style* (3-е изд., версия 3.0, 2004), и Jan Tschichold, *The Form of the Book* (англ. изд., 1991).
-
-Рекомендации для дальнейшего чтения хранятся в отдельной очереди библиотеки. В этот список добавляются источники, изученные и использованные в правилах агента.
+Канон опирается на стандарты, базовые статьи и книги практиков. Полный список с привязкой к разделам правил ведётся в одном месте — [docs/sources.md](docs/sources.md). В репозитории только самостоятельно сформулированные правила со ссылками на источники; оригиналы книг и документов не распространяются. Как добавить источник или правило, описано в [CONTRIBUTING.md](CONTRIBUTING.md).
 
 ## Лицензия
 

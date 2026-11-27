@@ -11,3 +11,6 @@ projects/
 
 # Local source copies are for private research, not repository distribution.
 references/online/
+
+# Python caches
+__pycache__/

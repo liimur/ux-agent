@@ -19,6 +19,8 @@ Use principles as lenses, not universal pass/fail formulas. For a task, select a
 - [Visual design, systems and inclusion](visual-systems.md) — typography, grids, color, component systems and inclusive practice.
 - [Sketches and prototypes](prototyping.md) — exploration, fidelity and simulation.
 
+Each rule has a stable ID for citation in findings and decisions, for example `IR-3` or `TY-4`. Do not renumber existing rules; append new ones to the end of their section. Prefixes: `RS` research and measurement; `IA` information architecture; `IR` interaction and recovery; `IX` goal-directed interaction design; `FC` findability and comprehension; `CT` content; `UT` formative usability testing; `TY` typography; `GR` grids; `CL` color; `DS` design systems; `IN` inclusive design; `PR` sketches and prototypes.
+
 See [resolving conflicts](rule-conflicts.md) when guidance differs by source, platform, or use case. The collections cite the sections consulted and identify limits. Select rules for the task; their application is not proof of usability or accessibility.
 
 ## Practical checks

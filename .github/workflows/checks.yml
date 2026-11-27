@@ -1,0 +1,32 @@
+name: checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Relative links and anchors
+        run: python3 scripts/check_links.py
+      - name: Scripts compile
+        run: python3 -m py_compile evals/check.py scripts/check_links.py
+      - name: Every skill has a Claude command
+        run: |
+          missing=0
+          for dir in .agents/skills/*/; do
+            name=$(basename "$dir")
+            [ -f ".claude/commands/$name.md" ] || { echo "missing .claude/commands/$name.md"; missing=1; }
+          done
+          exit $missing
+      - name: Sample outputs pass deterministic checks
+        run: python3 evals/check.py start --root examples/task-board/output && python3 evals/check.py system --root examples/task-board/output && python3 evals/check.py design --root examples/task-board/output && python3 evals/check.py review --root examples/task-board/output

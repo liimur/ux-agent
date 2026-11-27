@@ -15,15 +15,18 @@ Keep shared harness instructions and canon in English. Interact with users in Ru
 
 ## Commands
 
-Claude Code exposes `/ux-start`, `/ux-design-system`, `/ux-design`, and `/ux-review` through `.claude/commands/`. Codex discovers the matching project skills in `.agents/skills/`; use `$ux-start`, `$ux-design-system`, `$ux-design`, or `$ux-review` or select the skill in the host UI. Start a new session if discovery has not refreshed. The Claude command files refer to the corresponding shared skill instructions. Natural-language requests remain supported. See the [evaluation guide](../evals/README.md) for independent test prompts and rubrics.
+Claude Code exposes `/ux-start`, `/ux-design-system`, `/ux-design`, `/ux-review`, `/ux-research` and `/ux-interview` through `.claude/commands/`. Codex discovers the matching project skills in `.agents/skills/`; use `$ux-start`, `$ux-design-system`, `$ux-design`, `$ux-review`, `$ux-research` or `$ux-interview`, or select the skill in the host UI. Each skill defines its steps, required output sections and stop conditions. Start a new session if discovery has not refreshed. The Claude command files refer to the corresponding shared skill instructions. Natural-language requests remain supported. See the [evaluation guide](../evals/README.md) for independent test prompts and rubrics.
 
 ## Task routing
 
-- **Research, synthesis or testing:** read [research](../canon/research.md) and [interaction and content](../canon/interaction-content.md).
+- **Research, synthesis or testing:** read [research](../canon/research.md) and the formative testing rules in [interaction and content](../canon/interaction-content.md#formative-usability-testing).
+- **Designer interview findings:** read the [workflow section](workflow.md#designer-interview) and use the [designer rules template](../templates/DESIGNER-RULES.md).
 - **IA, flows, content and interactions:** read [interaction and content](../canon/interaction-content.md); use the [information architecture rules](../canon/information-architecture.md) for navigation and content structure.
 - **System import, tokens or components:** read [design-system intake](design-systems.md) and [visual systems](../canon/visual-systems.md).
 - **Sketches, wireframes or prototypes:** read [prototyping](../canon/prototyping.md), [interaction and content](../canon/interaction-content.md) and, for visual work, [visual systems](../canon/visual-systems.md).
 - **Critique:** read relevant sources for the artifact, then use [review template](../templates/REVIEW.md); report observable evidence and distinguish unverified items.
+
+If the project has `designer-rules.md`, read it for every design and review task in that project.
 
 Use [workflow](workflow.md) to choose the appropriate outputs. Create or update the brief and decision record when the task warrants it; do not require every workflow for every request.
 
@@ -42,4 +45,4 @@ For every task, identify the deliverable, target users, platform, scope, applica
 
 ## Synthetic smoke exercise
 
-Use [task-board brief](../examples/task-board/PROJECT.md) with the prompt above. Check that the result contains a brief or explicit assumptions, a flow with entry/success/error paths, a low-fidelity layout with meaningful content, and a review stating what has and has not been validated. This is a manual acceptance exercise; the repository does not yet contain an automated evaluator or a prebuilt prototype runtime.
+Use [task-board brief](../examples/task-board/PROJECT.md) with the prompt above. Check that the result contains a brief or explicit assumptions, a flow with entry/success/error paths, a low-fidelity layout with meaningful content, and a review stating what has and has not been validated. Compare with the [sample outputs](../examples/task-board/output/README.md). For repeatable scoring, use the [evaluations](../evals/README.md); the repository does not contain a prebuilt prototype runtime.

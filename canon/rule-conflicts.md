@@ -2,7 +2,7 @@
 
 Use the applicable requirements in the original standard or platform specification. Use evidence from the project to choose between compatible options. For open design choices, apply guidance written for the artifact and task. Use practical checks and print examples where the medium and task fit. When a choice changes the design materially, record the rule or source, the reason it applies, and how the result will be checked.
 
-## Cross-check of the four added sources
+## Known conflicts between sources
 
 | Apparent conflict | Decision for the agent |
 | --- | --- |

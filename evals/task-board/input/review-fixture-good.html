@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="ru">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Доска задач</title>
+<style>
+body{font:16px/1.5 system-ui;margin:1.5rem;color:#172033;max-width:60rem}
+label{display:block;font-weight:600;margin-top:1rem}
+input,select{font:inherit;padding:.5rem;border:1px solid #5b6476;border-radius:8px;min-width:16rem}
+button{font:inherit;background:#172033;color:#fff;border:0;border-radius:8px;padding:.6rem 1rem;margin-top:1rem;cursor:pointer}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #1d4ed8;outline-offset:2px}
+.error{color:#a3001b;margin:.25rem 0 0}
+.columns{display:grid;grid-template-columns:repeat(auto-fit,minmax(16rem,1fr));gap:1.5rem;margin-top:2rem}
+ul{list-style:none;padding:0}li{border:1px solid #c9ced8;border-radius:8px;padding:.75rem;margin-bottom:.5rem}
+.owner{color:#3d4658}
+</style></head>
+<body>
+<h1>Доска задач</h1>
+<form id="task-form" novalidate>
+  <h2>Новая задача</h2>
+  <label for="title">Название задачи</label>
+  <input id="title" name="title" autocomplete="off" aria-describedby="title-error">
+  <p id="title-error" class="error" hidden>Введите название задачи</p>
+  <label for="owner">Ответственный</label>
+  <select id="owner" name="owner" aria-describedby="owner-error">
+    <option value="">Выберите участника</option>
+    <option>Анна Миронова</option><option>Илья Орлов</option><option>Мария Соколова</option>
+  </select>
+  <p id="owner-error" class="error" hidden>Выберите ответственного</p>
+  <button type="submit">Создать задачу</button>
+</form>
+<p id="status" role="status"></p>
+<div class="columns">
+  <section aria-labelledby="open-h"><h2 id="open-h">Открытые</h2><ul id="open"></ul><p id="open-empty">Задач пока нет</p></section>
+  <section aria-labelledby="done-h"><h2 id="done-h">Выполненные</h2><ul id="done"></ul><p id="done-empty">Выполненных задач пока нет</p></section>
+</div>
+<script>
+const $ = s => document.querySelector(s);
+function field(input, error, ok) {
+  error.hidden = ok;
+  if (ok) input.removeAttribute('aria-invalid'); else input.setAttribute('aria-invalid', 'true');
+  return ok;
+}
+function refreshEmpty() {
+  $('#open-empty').hidden = $('#open').children.length > 0;
+  $('#done-empty').hidden = $('#done').children.length > 0;
+}
+$('#task-form').addEventListener('submit', e => {
+  e.preventDefault();
+  const title = $('#title'), owner = $('#owner');
+  const okTitle = field(title, $('#title-error'), title.value.trim() !== '');
+  const okOwner = field(owner, $('#owner-error'), owner.value !== '');
+  if (!okTitle) { title.focus(); return; }
+  if (!okOwner) { owner.focus(); return; }
+  const li = document.createElement('li');
+  const name = document.createElement('strong'); name.textContent = title.value.trim();
+  const who = document.createElement('div'); who.className = 'owner'; who.textContent = 'Ответственный: ' + owner.value;
+  const done = document.createElement('button'); done.type = 'button';
+  done.textContent = 'Отметить выполненной';
+  done.setAttribute('aria-label', 'Отметить выполненной: ' + title.value.trim());
+  done.addEventListener('click', () => {
+    done.remove(); $('#done').append(li); refreshEmpty();
+    $('#status').textContent = 'Задача «' + name.textContent + '» выполнена';
+  });
+  li.append(name, who, done); $('#open').append(li); refreshEmpty();
+  $('#status').textContent = 'Задача «' + name.textContent + '» создана';
+  title.value = ''; owner.value = ''; title.focus();
+});
+refreshEmpty();
+</script>
+</body></html>

@@ -1,6 +1,6 @@
 # UX Agent operating instructions
 
-Use this repository as a reusable UX/UI practice. Read the relevant project brief, `docs/workflow.md`, `docs/design-systems.md` when applicable, and `canon/README.md` before making design decisions. Read the linked rule collections relevant to the task and cite their source or section when explaining a material finding. Keep project material under `projects/<slug>/`; do not assume a shared brand or inherit another project's confidential information.
+Use this repository as a reusable UX/UI practice. Read the relevant project brief, `docs/workflow.md`, `docs/design-systems.md` when applicable, and `canon/README.md` before making design decisions. Read the linked rule collections relevant to the task and cite the rule ID (for example `IR-3`), criterion number or source section when explaining a material finding or decision. Keep project material under `projects/<slug>/`; do not assume a shared brand or inherit another project's confidential information.
 
 - Establish the user, task, context, platform, requested deliverable and constraints. If information is missing, make a clearly labelled provisional assumption and proceed where possible; ask only when a decision cannot responsibly be made.
 - Distinguish observed evidence, inference and proposal. Do not invent research, usability results, source tokens or Figma access. Record sources and unresolved conflicts.
@@ -25,7 +25,7 @@ When a design or review decision depends on platform conventions, a named design
 
 ## Language
 
-Repository instructions, workflows and reusable canon are maintained in English. Users are expected to communicate in Russian: respond in Russian by default, including questions, explanations and review findings. Follow the user's explicitly requested language or the language established by the project when it differs. Write user-facing deliverables and UI copy in the project’s required language; default to Russian when none is specified. Preserve source quotations, technical identifiers, code, API names and proper names where translation would change their meaning. Do not translate project or user-provided content without a task-related reason.
+Repository instructions, workflows and reusable canon are maintained in English. Exception: the [designer interview guide](docs/designer-interview-guide.md) is written in Russian because it is read aloud in Russian-language interviews; keep its instructions for the agent in `docs/workflow.md`. Users are expected to communicate in Russian: respond in Russian by default, including questions, explanations and review findings. Follow the user's explicitly requested language or the language established by the project when it differs. Write user-facing deliverables and UI copy in the project’s required language; default to Russian when none is specified. Preserve source quotations, technical identifiers, code, API names and proper names where translation would change their meaning. Do not translate project or user-provided content without a task-related reason.
 
 ## Open-source readiness
 
