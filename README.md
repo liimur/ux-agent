@@ -6,20 +6,22 @@ A project-independent, agent-ready foundation for UX and UI work: research synth
 
 ## Run with a coding agent
 
-Open this repository in Codex or Claude Code and ask the agent to read [AGENTS.md](AGENTS.md) and [the host-agent guide](docs/host-agent.md), then give it a concrete UX task. The host supplies model and tool access; available capabilities vary by environment. See the [synthetic example](examples/task-board/PROJECT.md) for a smoke exercise. The repository contains no prebuilt prototype runtime or automated evaluation runner yet.
+Open this repository in Codex or Claude Code and ask the agent to read [AGENTS.md](AGENTS.md) and [the host-agent guide](docs/host-agent.md), then give it a concrete UX task. The host supplies model and tool access; available capabilities vary by environment. See the [synthetic example](examples/task-board/PROJECT.md) and the [sample outputs](examples/task-board/output/README.md) to see what the commands produce. Setup details are in the host-agent guide.
 
 Users can work with the harness in Russian. User-facing deliverables default to Russian unless the project or user specifies another language; shared instructions and canon are maintained in English.
 
 ## Commands
 
-Use these shortcuts for common outcomes; natural-language requests work too. In Claude Code, invoke `/ux-start`, `/ux-design-system`, `/ux-design` or `/ux-review`. In Codex, invoke the corresponding skills as `$ux-start`, `$ux-design-system`, `$ux-design` or `$ux-review`, or select them through the skill UI. Start a new host session after adding the skills if they are not discovered. The shortcuts use the same project instructions and can be used individually.
+Use these shortcuts for common outcomes; natural-language requests work too. In Claude Code, invoke `/ux-<name>`; in Codex, use `$ux-<name>` or select the skill in the host UI. The [host-agent guide](docs/host-agent.md#commands) covers discovery. The shortcuts use the same project instructions and can be used individually.
 
 - **Start** — structure the brief and identify assumptions and research gaps.
 - **Design system** — map source systems, tokens and components into project guidance.
 - **Design** — create a flow, wireframe, comp or prototype at the requested fidelity.
 - **Review** — assess an existing artifact and report evidence and limitations.
+- **Research** — plan a study, write a discussion or test guide, or synthesize supplied research.
+- **Interview** — turn designer interview notes or a transcript into project rules.
 
-Run the [synthetic evaluations](evals/README.md) to assess the commands on a task-board project. These are manual behavioral evaluations, not a pre-run guarantee of quality.
+Run the [synthetic evaluations](evals/README.md) to assess the commands and record results in the [results log](evals/results/README.md). The evaluations are judged by a person, with a script for the deterministic checks; they are not a guarantee of quality.
 
 ## Start a project
 
@@ -65,36 +67,14 @@ The agent fixes issues within scope before handoff and marks checks it could not
 - [Design systems](docs/design-systems.md) — source mapping, DESIGN.md and Figma.
 - [Reference preparation](docs/host-agent.md#prepare-references) — select official guidance and keep working copies outside the repository.
 - [Canon](canon/README.md) — design principles, rules and practical checks.
-- [Project template](templates/PROJECT.md) and [review template](templates/REVIEW.md).
+- [Templates](templates/) — project brief, review, design artifact, prototype specification, source mapping and designer rules.
+- [Methodology sources](docs/sources.md) and [contributing](CONTRIBUTING.md).
 
 The canon includes [practical design and review checks](canon/README.md#practical-checks). Elvin Rakhmankulov’s [designer interview guide](docs/designer-interview-guide.md) helps translate interview findings into project rules.
 
 ## Methodology sources
 
-The design rules and practical checks draw on the sources below. The repository contains extracted, attributed guidance and rules; it does not distribute the original books or source documents. The summaries are interpretations, so consult the originals for their full context and the current language of standards.
-
-- Jakob Nielsen, [10 Usability Heuristics for User Interface Design](https://www.nngroup.com/articles/ten-usability-heuristics/).
-- W3C, [Web Content Accessibility Guidelines (WCAG) 2.2](https://www.w3.org/TR/WCAG22/).
-- Brad Frost, [*Atomic Design*](https://atomicdesign.bradfrost.com/), 2016.
-- Louis Rosenfeld, Peter Morville and Jorge Arango, *Information Architecture: For the Web and Beyond*, 4th edition, 2015.
-- Adam Wathan and Steve Schoger, *Refactoring UI*, 2018.
-- Luke Wroblewski, *Web Form Design: Filling in the Blanks*, 2008.
-- ISO, [ISO 9241-210: Human-centred design for interactive systems](https://www.iso.org/standard/77520.html).
-- Google Labs, [DESIGN.md format specification](https://github.com/google-labs-code/design.md/blob/main/docs/spec.md).
-
-### Additional books analyzed
-
-The following sources inform the linked rule collections. Page and chapter references, practical interpretations and limitations appear in the relevant collection.
-
-- Bill Buxton, *Sketching User Experiences* (2007), and Carolyn Snyder, *Paper Prototyping* (2003; one section consulted in a copy flagged as a possible excerpt) — [prototyping](canon/prototyping.md).
-- Erika Hall, *Just Enough Research* (2024 edition); Steve Portigal, *Interviewing Users* (2nd ed., 2023); Indi Young, *Mental Models* (2008); Caroline Jarrett, *Surveys That Work* (2021); Tom Tullis and Bill Albert, *Measuring the User Experience* (2nd ed., 2013); Jeff Sauro and James R. Lewis, *Quantifying the User Experience* (2nd ed., 2016) — [research](canon/research.md).
-- Don Norman, *The Design of Everyday Things* (revised edition, 2013); Jenifer Tidwell, *Designing Interfaces* (2nd ed., 2011); Steve Krug, *Don't Make Me Think, Revisited* (3rd ed., 2014) and *Rocket Surgery Made Easy* (2010); Sarah Richards, *Content Design* (2017); Susan Weinschenk, *100 Things Every Designer Needs to Know About People* (2nd ed., 2020) — [interaction and content](canon/interaction-content.md).
-- Ellen Lupton, *Thinking with Type* (3rd ed., 2024); Josef Müller-Brockmann, *Grid Systems in Graphic Design* (Niggli edition; year unverified); Josef Albers, *Interaction of Color* (4th ed., 2013); Alla Kholmatova, *Design Systems* (2017); Dan Mall, *Design That Scales* (2023); Kat Holmes, *Mismatch* (2018) — [visual design and systems](canon/visual-systems.md).
-- Abby Covert, *How to Make Sense of Any Mess* (2014) — [information architecture](canon/information-architecture.md).
-- Alan Cooper, Robert Reimann, David Cronin and Christopher Noessel, *About Face: The Essentials of Interaction Design* (4th ed., 2014) — [goal-directed interaction design](canon/interaction-content.md#goal-directed-interaction-design).
-- Robert Bringhurst, *The Elements of Typographic Style* (3rd ed., version 3.0, 2004), and Jan Tschichold, *The Form of the Book* (English ed., 1991) — [typography](canon/visual-systems.md#typography).
-
-Additional recommended reading is tracked separately in the library acquisition queue; a recommendation does not imply it has already been analyzed or incorporated into this methodology. As new sources are analyzed, add them here and link extracted guidance to its source.
+The canon draws on standards, foundation articles and practitioner books, listed with the rule collections they inform in [methodology sources](docs/sources.md). The repository contains independently written, attributed rules; it does not distribute the original books or source documents. [Contributing](CONTRIBUTING.md) explains how to add a source or rule.
 
 ## License
 

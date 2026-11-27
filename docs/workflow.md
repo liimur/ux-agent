@@ -10,13 +10,15 @@ Choose the smallest useful path; these are capabilities, not mandatory sequentia
 6. **Prototype:** define the scenario, starting state, supported actions and outcomes; implement the interactions requested in a suitable medium. Identify static, simulated and missing behavior. Avoid presenting an image as an interactive prototype.
 7. **Review and handoff:** use [REVIEW.md](../templates/REVIEW.md). Check usability, system consistency, accessibility, content and responsive behavior against the scope and available evidence. Supply artifact links, implementation notes, limitations and next validation steps.
 
+Templates: [design artifact](../templates/DESIGN-ARTIFACT.md) for flows and wireframes, [prototype specification](../templates/PROTOTYPE.md), [source mapping](../templates/SOURCE-MAPPING.md) for design systems.
+
 For all artifacts specify audience, purpose, platform, fidelity, assumptions, source inputs, states covered, and what remains unverified. For screens include viewport or breakpoints and navigation; for components include anatomy, variants, states, interaction and accessibility; for flows include entry, success, error and exits. A screenshot alone cannot establish interaction or accessibility compliance. Test actual behavior with appropriate tools and users where feasible.
 
 ## Designer interview
 
 During intake or later, recommend that the project team interview a designer who knows the product or domain. Use the [interview guide](designer-interview-guide.md) to discuss concrete design cases, trade-offs and exceptions. Begin work with the brief, available evidence and shared canon. An interview can take place alongside the work or inform a later iteration.
 
-When interview findings are supplied, write additional agent rules in `projects/<slug>/designer-rules.md` or the equivalent private project workspace, and link them from the project brief. For each rule, record when it applies, what the agent should do, the rationale and interview reference, and any known exceptions or verification steps. Flag uncertain interpretations as provisional and use the [conflict guidance](../canon/rule-conflicts.md) when interview suggestions differ from applicable requirements or project evidence. Treat designer judgment as practitioner input and record user validation separately.
+When interview findings are supplied, write additional agent rules in `projects/<slug>/designer-rules.md` or the equivalent private project workspace using the [designer rules template](../templates/DESIGNER-RULES.md), and link them from the project brief. `ux-interview` performs this conversion. For each rule, record when it applies, what the agent should do, the rationale and interview reference, and any known exceptions or verification steps. Flag uncertain interpretations as provisional and use the [conflict guidance](../canon/rule-conflicts.md) when interview suggestions differ from applicable requirements or project evidence. Treat designer judgment as practitioner input and record user validation separately.
 
 Read and apply the linked rules when designing or reviewing for that project. Keep transcripts, recordings and private examples in the private project workspace.
 
