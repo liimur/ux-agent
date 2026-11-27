@@ -1,8 +1,10 @@
 # UX Agent
 
+**UX harness for coding agents: skills, canon, templates and evals for Codex and Claude Code.**
+
 [Русская версия](README.ru.md)
 
-A project-independent, agent-ready foundation for UX and UI work: research synthesis, information architecture, flows, design systems, components, low- and high-fidelity compositions, interactive prototypes and critique. It runs as an instruction and knowledge base inside a coding agent; it does not provide its own model, tool runtime or autonomous background service.
+UX Agent is not an agent of its own. It is a harness: instructions, design knowledge, six skills, templates and evaluations that a host agent such as Codex or Claude Code loads to do UX work. It is a project-independent foundation for UX and UI work: research synthesis, information architecture, flows, design systems, components, low- and high-fidelity compositions, interactive prototypes and critique. It runs as an instruction and knowledge base inside a coding agent; it does not provide its own model, tool runtime or autonomous background service.
 
 ## Run with a coding agent
 
